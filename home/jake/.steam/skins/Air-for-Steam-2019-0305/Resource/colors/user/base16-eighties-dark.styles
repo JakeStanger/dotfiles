@@ -1,0 +1,19 @@
+"Resource/colors/base16-eighties-dark.styles" {
+
+	colors {
+		Focus="45 45 45 255"
+
+		Focus2="211 208 200 255"
+			//for text
+
+		Focus3="102 153 204 255"
+			//darker hue (-5% brightness)
+
+		Focus4="116 115 105 150"
+			//Focus3 transparent for details box
+
+		A2TextFocus="Focus2"
+
+		A2TextFocusHover="Focus2"
+	}
+}
