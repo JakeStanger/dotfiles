@@ -1,0 +1,56 @@
+:root {
+  --background: #2d2d2d;
+  --foreground: #d3d0c8;
+  --red: #f2777a;
+  --grey: #747369;
+  --blue: #6699cc;
+}
+
+body {
+  font-family: Ubuntu;
+}
+
+div[class*="title"],
+div[class*="messagesWrapper"],
+div[class*="content"],
+div[class*="content"] form,
+div[class*="content"] form div[class*="inner"],
+div[class*="content"] form div[class*="typing"],
+div[class*="scroller"],
+div[class*="container"],
+header {
+  background-color: var(--background) !important;
+}
+
+span[class*="dividerContent"] {
+  color: var(--red) !important;
+}
+
+div[class*="containerDefault"][class*="selected"], div[class*="containerDefault"][class*="selected"] div[class*="content"] {
+  background-color: var(--grey) !important;
+}
+
+div[class*="containerDefault"][class*="selected"] div[class*="content"] svg {
+  color: var(--foreground);
+}
+
+div[class*="scrollerWrap"] div[class*="scroller"]::-webkit-scrollbar-thumb,
+div[class*="scrollerWrap"] div[class*="scroller"]::-webkit-scrollbar-track-piece {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 0px solid red !important;
+}
+
+div[class*="scrollerWrap"] div[class*="scroller"]::-webkit-scrollbar-track-piece {
+  background-color: var(--background) !important;
+}
+
+div[class*="scrollerWrap"] div[class*="scroller"]::-webkit-scrollbar-thumb {
+  background-color: var(--grey) !important;
+  
+  
+}
+
+div[class*="scrollerWrap"] div[class*="scroller"]::-webkit-scrollbar {
+  width: 2px !important;
+}
