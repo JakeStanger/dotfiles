@@ -20,6 +20,9 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 
+"enable true colour support
+"set tgc
+
 "share vim and system clipboard
 if has('unnamedplus')
 	set clipboard=unnamed,unnamedplus
@@ -31,3 +34,5 @@ endif
 "load extra files
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/nerdtree.vim
+
+

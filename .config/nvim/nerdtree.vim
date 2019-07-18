@@ -12,3 +12,6 @@ autocmd BufEnter * lcd %:p:h
 
 let NERDTreeMinimalUI = 1
 let NErdTReeDirArrows = 1
+
+"enable nerdtree-tabs to keep open nerdtree on all tabs
+let g:nerdtree_tabs_open_on_console_startup=1
