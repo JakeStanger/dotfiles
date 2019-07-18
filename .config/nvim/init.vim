@@ -26,7 +26,7 @@ if has('unnamedplus')
 endif
 
 "scroll and cursor clicking only
-set mouse=ni
+"set mouse=ni
 
 "load extra files
 source ~/.config/nvim/plugins.vim
