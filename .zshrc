@@ -1,11 +1,16 @@
 # === Environment Variables ===
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Path
 export PATH="$HOME/.yarn/bin:$PATH"
-export NODE_PATH="$HOME/.config/yarn/global/node_modules"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
-export LFS=/mnt/lfs
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init -)"
+
+export NODE_PATH="$HOME/.config/yarn/global/node_modules"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/jake/.oh-my-zsh"
@@ -14,14 +19,10 @@ export TERM=xterm-256color
 
 # === ZSH Config ===
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="avit"
 
 # ZSH Autosuggestions
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(history)
 
 # Use UK timestamps in history
 HIST_STAMPS="dd/mm/yyyy"
@@ -32,6 +33,8 @@ plugins=(git adb colored-man-pages colorize command-not-found common-aliases gul
 source $ZSH/oh-my-zsh.sh
 
 # === Functions and Aliases === 
+
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
 function pygmentize_cat {
   for arg in "$@"; do
@@ -49,6 +52,18 @@ function scratch {
   fi
 }
 
+function diary {
+  datestring="$(date +"%d-%m-%y")"
+  file="/home/jake/.diary/$datestring.md"
+
+  if [ ! -f "$file" ]
+  then
+    echo "# $datestring" > $file
+  fi
+
+  nvim "$file"
+}
+
 function push {
   git add .
   git commit -m "$1:-Push changes"
@@ -60,9 +75,23 @@ function dotsync {
   cp -arlv --parents "$1" ~/.dotfiles
 }
 
+function color {
+  if [ -z "$1" ]
+  then
+    ls "/home/jake/bin/color-scripts"
+  else
+    "/home/jake/bin/color-scripts/$1"
+  fi
+}
+
 alias cat=pygmentize_cat
 
 alias upgrade="sudo apt update && sudo apt upgrade && sudo apt autoremove"
 alias vim=nvim
+
+alias ls=exa
+alias la="exa -la --git"
+
+alias c="code ."
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
